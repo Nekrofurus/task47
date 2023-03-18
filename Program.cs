@@ -1,4 +1,4 @@
-﻿// Задайте двумерный массив размером mxn заполненный случайными вещественными числами
+﻿// Задайте двумерный массив размером m x n заполненный случайными вещественными числами
 int numberLine = UserInput("Количество строк в новой таблице = ");
 int numberColumb = UserInput("Количество столбцов в новой таблице = ");
 int maximum = UserInput("Введите максимальное значение = ");
@@ -8,9 +8,10 @@ double[,] CreateRandomDoubleMatrix(int line, int columb, int min, int max)
     double[,] matrix = new double[line,columb];
     for (int i = 0; i < line; i++)
     {
+        Random random = new Random();
         for (int j = 0; j < columb; j++)
         {
-            matrix[i, j] = new Random().Next(min, max + 1);
+            matrix[i, j] = Math.Round(random.NextDouble() * (max - min) + min, 2);
         }
     }
     return matrix;
